@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아기 졸업식에 초대합니다</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    /* --- Basic Setup --- */
+    body {
+        font-family: 'Gaegu', cursive;
+        background-color: #f0f4f8;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .invitation-card {
+        background: #ffffff;
+        width: 100%;
+        max-width: 420px;
+        border-radius: 25px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        text-align: center;
+        border: 2px solid #ffd9e2;
+        position: relative;
+        overflow: hidden; /* For confetti */
+    }
+
+    /* --- Header --- */
+    header h1 {
+        color: #ff69b4;
+        font-size: 2.2em;
+        margin: 10px 0;
+        font-weight: 700;
+    }
+
+    header .subtitle {
+        font-size: 1.1em;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* --- Photo Section --- */
+    .photo-section img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        margin-bottom: 10px;
+    }
+
+    .photo-section h2 {
+        font-size: 1.8em;
+        color: #333;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    /* --- Details Section --- */
+    .details-section {
+        margin: 30px 0;
+        text-align: left;
+        border-top: 1px dashed #ddd;
+        border-bottom: 1px dashed #ddd;
+        padding: 20px 0;
+    }
+
+    .details-section ul {
+        list-style: none;
+        padding: 0 15px;
+        margin: 0;
+    }
+
+    .details-section li {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+    .details-section li strong {
+        color: #ff69b4;
+        width: 70px;
+        display: inline-block;
+    }
+
+    /* Adding cute icons */
+    .details-section li:nth-child(1)::before { content: '👶 ' ; }
+    .details-section li:nth-child(2)::before { content: '📅 ' ; }
+    .details-section li:nth-child(3)::before { content: '🕒 ' ; }
+    .details-section li:nth-child(4)::before { content: '🏫 ' ; }
+
+
+    /* --- Message Section --- */
+    .message-section {
+        margin: 30px 0;
+        font-size: 1.1em;
+        line-height: 1.8;
+        background: #fff9e6;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    /* --- Location Section --- */
+    .location-section h2 {
+        font-size: 1.5em;
+        color: #ff69b4;
+        margin-bottom: 15px;
+    }
+
+    .map-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 75%; /* 4:3 Aspect Ratio */
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .location-section p {
+        font-size: 1em;
+        color: #667;
+    }
+
+    /* --- Footer --- */
+    footer {
+        margin-top: 30px;
+        font-size: 1.2em;
+        font-weight: 700;
+        color: #ff69b4;
+    }
+
+    /* --- Confetti Decoration --- */
+    @keyframes fall {
+        0% { transform: translateY(-100px) rotateZ(0deg); opacity: 1; }
+        100% { transform: translateY(150px) rotateZ(360deg); opacity: 0; }
+    }
+
+    .confetti::before, .confetti::after, .confetti-bottom::before, .confetti-bottom::after {
+        content: '🎉';
+        position: absolute;
+        font-size: 1.5em;
+        animation: fall 5s linear infinite;
+    }
+
+    .confetti::before { top: -20px; left: 10%; animation-delay: 0s; }
+    .confetti::after { top: -20px; left: 80%; animation-delay: -2.5s; }
+    .confetti-bottom::before { top: -20px; left: 20%; animation-delay: -1.5s; }
+    .confetti-bottom::after { top: -20px; left: 60%; animation-delay: -4s; }
+
+    .confetti-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px; /* just for positioning */
+    }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <header>
+            <div class="confetti"></div>
+            <h1>💌 초대합니다 💌</h1>
+            <p class="subtitle">세상 가장 소중한 우리 아기의<br>첫 졸업을 축하해주세요!</p>
+        </header>
+
+        <section class="photo-section">
+            <img src="KakaoTalk_20250821_135858103.jpg" alt="아이 사진">
+            <h2>주시내</h2>
+        </section>
+
+        <section class="details-section">
+            <ul>
+                <li><strong>주인공</strong>: 귀염둥이 주시내</li>
+                <li><strong>날짜</strong>: 2025년 8월 25일 (월)</li>
+                <li><strong>시간</strong>: 오전 11시</li>
+                <li><strong>장소</strong>: 휴먼빌키즈어린이집</li>
+            </ul>
+        </section>
+
+        <section class="message-section">
+            <p>언제나 사랑과 웃음이 가득했던<br>어린이집 생활을 마치고<br>더 넓은 세상으로 나아가는<br>우리 아기의 첫걸음을<br>함께 축복해주세요.</p>
+        </section>
+
+        <section class="location-section">
+            <h2>오시는 길</h2>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=서울특별시 성북구 돈암동 휴먼빌키즈어린이집&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+            <p>서울 성북구 아리랑로 89, 일신휴먼빌아파트</p>
+        </section>
+
+        <footer>
+            <p>마음껏 축하해주시고, 자리를 빛내주세요!</p>
+        </footer>
+        <div class="confetti-bottom"></div>
+    </div>
+</body>
+</html>
