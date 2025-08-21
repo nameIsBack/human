@@ -1,157 +1,227 @@
 /* --- Google Font --- */
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
 
-/* --- Basic Setup --- */
+/* --- Reset & Basic Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Gaegu', cursive;
-    background-color: #f0f4f8;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+    background-color: #fdfbff;
+    /* Cute polka dot background */
+    background-image: radial-gradient(circle, #fce4ec 1px, rgba(0,0,0,0) 1px);
+    background-size: 20px 20px;
+    color: #4A4A4A;
+    line-height: 1.6;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
 }
 
-.invitation-card {
-    background: #ffffff;
+.container {
     width: 100%;
-    max-width: 420px;
-    border-radius: 25px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-    border: 2px solid #ffd9e2;
-    position: relative;
-    overflow: hidden; /* For confetti */
+    max-width: 900px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px 40px;
+    border: 3px solid #FFDFD3;
+    position: relative; /* For sparkle positioning */
 }
+
+/* --- Sparkle Animation --- */
+@keyframes sparkle {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.5) rotate(180deg); opacity: 0.5; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+
+.container::before, .container::after {
+    content: '✨';
+    position: absolute;
+    font-size: 2em;
+    animation: sparkle 4s linear infinite;
+}
+
+.container::before {
+    top: 20px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.container::after {
+    top: 80px;
+    right: 30px;
+    animation-delay: -2s; /* Start at a different point in the animation */
+}
+
 
 /* --- Header --- */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px dashed #B4E4FF;
+    padding-bottom: 20px;
+    position: relative;
+}
+
 header h1 {
-    color: #ff69b4;
-    font-size: 2.2em;
-    margin: 10px 0;
+    font-size: 2.5em;
+    color: #ff6b6b;
     font-weight: 700;
+    transition: transform 0.3s ease-in-out; /* Added for hover effect */
+    cursor: pointer;
 }
 
-header .subtitle {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 20px;
+header h1:hover {
+    transform: scale(1.05) rotate(-2deg); /* Cute hover effect */
 }
 
-/* --- Photo Section --- */
-.photo-section img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    margin-bottom: 10px;
+/* --- Main Content Sections --- */
+main section {
+    margin-bottom: 40px;
 }
 
-.photo-section h2 {
+h2 {
     font-size: 1.8em;
-    color: #333;
-    margin: 0;
+    color: #4a90e2;
+    margin-bottom: 15px;
+    text-align: center;
     font-weight: 700;
+    position: relative;
 }
 
-/* --- Details Section --- */
-.details-section {
-    margin: 30px 0;
-    text-align: left;
-    border-top: 1px dashed #ddd;
-    border-bottom: 1px dashed #ddd;
-    padding: 20px 0;
+/* Cute icons next to section titles */
+h2::before, h2::after {
+    font-size: 0.7em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.details-section ul {
-    list-style: none;
-    padding: 0 15px;
-    margin: 0;
+h2::before {
+    content: '💖';
+    left: 20px;
 }
 
-.details-section li {
-    font-size: 1.1em;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
+h2::after {
+    content: '💖';
+    right: 20px;
 }
 
-.details-section li strong {
-    color: #ff69b4;
-    width: 70px;
-    display: inline-block;
+/* --- Video Section --- */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Adding cute icons */
-.details-section li:nth-child(1)::before { content: '👶 '; }
-.details-section li:nth-child(2)::before { content: '📅 '; }
-.details-section li:nth-child(3)::before { content: '🕒 '; }
-.details-section li:nth-child(4)::before { content: '🏫 '; }
-
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
 
 /* --- Message Section --- */
-.message-section {
-    margin: 30px 0;
-    font-size: 1.1em;
-    line-height: 1.8;
-    background: #fff9e6;
+.message-section p {
+    font-size: 1.2em;
+    text-align: center;
+    background-color: #FFF8B4;
     padding: 20px;
     border-radius: 15px;
+    border: 2px solid #fbeeb2;
+    transition: transform 0.3s;
 }
 
-/* --- Location Section --- */
-.location-section h2 {
-    font-size: 1.5em;
-    color: #ff69b4;
-    margin-bottom: 15px;
+.message-section p:hover {
+    transform: scale(1.03);
 }
 
-.location-section .map {
-    width: 100%;
+/* --- Gallery Section --- */
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery .photo {
+    width: calc(33.333% - 20px);
+    min-width: 200px;
+    aspect-ratio: 1 / 1;
     border-radius: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #eee;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.location-section p {
-    font-size: 1em;
-    color: #667;
+.gallery .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+.gallery .photo:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
 
 /* --- Footer --- */
 footer {
+    text-align: center;
     margin-top: 30px;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #ff69b4;
+    padding-top: 20px;
+    border-top: 2px dashed #B4E4FF;
+    font-size: 1.1em;
+    color: #777;
 }
 
-/* --- Confetti Decoration --- */
-@keyframes fall {
-    0% { transform: translateY(-100px) rotateZ(0deg); opacity: 1; }
-    100% { transform: translateY(150px) rotateZ(360deg); opacity: 0; }
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.confetti::before, .confetti::after, .confetti-bottom::before, .confetti-bottom::after {
-    content: '🎉';
-    position: absolute;
-    font-size: 1.5em;
-    animation: fall 5s linear infinite;
+.fade-in.start-animation {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.confetti::before { top: -20px; left: 10%; animation-delay: 0s; }
-.confetti::after { top: -20px; left: 80%; animation-delay: -2.5s; }
-.confetti-bottom::before { top: -20px; left: 20%; animation-delay: -1.5s; }
-.confetti-bottom::after { top: -20px; left: 60%; animation-delay: -4s; }
 
-.confetti-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px; /* just for positioning */
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h2::before, h2::after {
+        display: none; /* Hide icons on small screens to avoid clutter */
+    }
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery .photo {
+        width: 80%;
+        max-width: 300px;
+    }
 }
