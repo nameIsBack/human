@@ -1,0 +1,157 @@
+/* --- Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+/* --- Basic Setup --- */
+body {
+    font-family: 'Gaegu', cursive;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.invitation-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #ffd9e2;
+    position: relative;
+    overflow: hidden; /* For confetti */
+}
+
+/* --- Header --- */
+header h1 {
+    color: #ff69b4;
+    font-size: 2.2em;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+header .subtitle {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* --- Photo Section --- */
+.photo-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    margin-bottom: 10px;
+}
+
+.photo-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* --- Details Section --- */
+.details-section {
+    margin: 30px 0;
+    text-align: left;
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    padding: 20px 0;
+}
+
+.details-section ul {
+    list-style: none;
+    padding: 0 15px;
+    margin: 0;
+}
+
+.details-section li {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.details-section li strong {
+    color: #ff69b4;
+    width: 70px;
+    display: inline-block;
+}
+
+/* Adding cute icons */
+.details-section li:nth-child(1)::before { content: '👶 '; }
+.details-section li:nth-child(2)::before { content: '📅 '; }
+.details-section li:nth-child(3)::before { content: '🕒 '; }
+.details-section li:nth-child(4)::before { content: '🏫 '; }
+
+
+/* --- Message Section --- */
+.message-section {
+    margin: 30px 0;
+    font-size: 1.1em;
+    line-height: 1.8;
+    background: #fff9e6;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* --- Location Section --- */
+.location-section h2 {
+    font-size: 1.5em;
+    color: #ff69b4;
+    margin-bottom: 15px;
+}
+
+.location-section .map {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.location-section p {
+    font-size: 1em;
+    color: #667;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #ff69b4;
+}
+
+/* --- Confetti Decoration --- */
+@keyframes fall {
+    0% { transform: translateY(-100px) rotateZ(0deg); opacity: 1; }
+    100% { transform: translateY(150px) rotateZ(360deg); opacity: 0; }
+}
+
+.confetti::before, .confetti::after, .confetti-bottom::before, .confetti-bottom::after {
+    content: '🎉';
+    position: absolute;
+    font-size: 1.5em;
+    animation: fall 5s linear infinite;
+}
+
+.confetti::before { top: -20px; left: 10%; animation-delay: 0s; }
+.confetti::after { top: -20px; left: 80%; animation-delay: -2.5s; }
+.confetti-bottom::before { top: -20px; left: 20%; animation-delay: -1.5s; }
+.confetti-bottom::after { top: -20px; left: 60%; animation-delay: -4s; }
+
+.confetti-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* just for positioning */
+}
